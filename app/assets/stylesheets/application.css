@@ -1,0 +1,61 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require adminlte
+ //= require adminlte/skins/skin-blue
+ *= require_tree .
+ *= require_self
+ */
+ html {
+ 	font-size: 62.5%;
+ }
+.main-sidebar {
+	position: fixed;
+}
+.main {
+	margin-left: 25rem;
+	margin-top: 5rem;
+	margin-right: 2rem;
+}
+.form_label {
+	width: 100px;
+}
+.skin-blue .sidebar .btn-primary {
+	color: #ffffff;
+}
+.skin-blue .sidebar .btn-default {
+	color: #777777;
+}
+.navbar-header {
+	color: #ffffff;
+	font-size: 2.8rem;
+	font-weight: 400;
+}
+.navbar-header span {
+	font-weight: 600;
+}
+.navbar-header p a {
+	text-decoration: none;
+	color:#07E0EB;
+}
+.skin-blue .sidebar a {
+	color: #000000;
+}
+.table, th {
+	text-align: center;
+}
+
+@media (max-width: 767px) {
+	.main {
+		margin-left: 0;
+	}
+}

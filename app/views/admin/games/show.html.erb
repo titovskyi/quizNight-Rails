@@ -1,0 +1,78 @@
+<div class="main">
+	<div class="box">
+		<div class="box-body table-responsive">
+			<table class="table">
+				<tbody>
+					<tbody>
+						<tr>
+							<th>Город</th>
+							<td><%= @game.league.city %></td>
+						</tr>
+						<tr>
+							<th>Лига</th>
+							<td><%= @game.league.name %></td>
+						</tr>
+						<tr>
+							<th>Сезон</th>
+							<td><%= @game.season.name %></td>
+						</tr>
+						<tr>
+							<th>Игра</th>
+							<td><%= @game.game %></td>
+						</tr>
+						<tr>
+							<th>Место проведения</th>
+							<td><%= @game.location %></td>
+						</tr>
+						<tr>
+							<th>Дата</th>
+							<td>
+						      	<% if @game.data != nil %>
+						      	<%= @game.data.strftime("%d-%m-%Y")%>
+						      	<%= @game.data.strftime("%H:%M")%>
+						      	<% else %>
+						      	<%= "" %>
+						      	<% end %>
+						      </td>
+						</tr>
+					</tbody>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="box">
+		<div class="boc-body table-responsive">
+			<table class="table">
+				<tbody>
+					<tr>
+						<th>Команда</th>
+						<th>Капитан</th>
+						<th>email</th>
+						<th>Телефон</th>
+						<th>Подтверждение</th>
+					</tr>
+				</tbody>
+				<tbody>
+					<% @game_teams.each do |game_team| %>
+						<tr>
+							<td><%= game_team.team.name %></td>
+							<td><%= game_team.team.captain %></td>
+							<td><%= game_team.team.email %></td>
+							<td><%= game_team.team.phone %></td>
+							<td>
+								<% if game_team.approved == false %>
+									<span class="approve-question">
+									  <%= link_to "Approve", update_team_in_game_admin_game_team_path(game_team), method: :patch, :class => "approve_link" %>
+									</span>
+								<% else %>
+									<div class="approved"><i class="fas fa-check"></i></div>
+								<% end %>
+							</td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+			<%= paginate @game_teams %>	
+		</div>
+	</div>
+</div>

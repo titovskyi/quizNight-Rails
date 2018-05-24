@@ -1,0 +1,26 @@
+<%= form_for [:admin, @league, @season, @game] do |f| %>
+	<div class="form-control">
+		<%= f.label :project, :value => "Проект" %>
+		<%= f.text_field :project, value: "Quiz Night", readonly: true %>
+	</div>
+	<div class="form-control">
+		<%= f.label :game, :value => "Игра" %>
+		<%= f.number_field :game, :value => @last_game.blank? ? 1 : @last_game.game + 1, readonly: true %>
+	</div>
+	<div class="form-control input-group date" id='datetimepicker2'>
+		<%= f.label :data, :value => "Дата и Время" %>
+		<%= f.text_field(:data) %>
+		<span class="input-group-addon">
+			<span class="glyphicon glyphicon-calendar"></span>
+		</span>
+	</div>
+	<div class="form-control">
+		<%= f.label :location, :value => "Заведение" %>
+		<%= f.text_field (:location) %>
+	</div>
+	<div class="form-control">
+		<%= f.label :adress, "Адрес" %>
+		<%= f.text_field(:adress) %>
+	</div>
+		<%= f.submit 'Сохранить', :class => "btn btn-primary m-t-2" %>
+<% end %>

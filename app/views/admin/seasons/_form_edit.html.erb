@@ -1,0 +1,11 @@
+<%= form_for [:admin, @league, @season] do |f| %>
+	<div class="form-control">
+		<%= f.label :name %>
+		<%= f.number_field :name %>
+	</div>
+<!-- 	<div class="form-control">
+		<%= f.label :league_id %>
+		<%= f.select :league_id, League.all.collect {|x| [x.name]}, {:selected => @league}, {:include_blank => true } %>
+	</div> -->
+		<%= f.submit 'Сохранить', :class => "btn btn-primary m-t-2" %>
+<% end %>

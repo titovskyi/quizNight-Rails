@@ -1,0 +1,11 @@
+<%= form_for :game_team, url: admin_game_teams_path do |f| %>
+	<div class="form-control">
+		<%= f.label :team_id, "Команда" %>
+		<%= f.select :team_id, options_from_collection_for_select(Team.all.order(:name), :id, :name), prompt: "Все Команды" %>
+	</div>
+	<div class="form-control">
+		<%= f.label :game_id, "Игра" %>
+		<%= f.select :game_id, options_from_collection_for_select(Game.all.order(:game), :id, :game), prompt: "Все Игры" %>
+	</div>
+	<%= f.submit 'Сохранить', :class => "btn btn-primary m-t-2" %>
+<% end %>

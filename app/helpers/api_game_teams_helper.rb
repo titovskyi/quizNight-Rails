@@ -1,0 +1,2 @@
+module ApiGameTeamsHelper
+end

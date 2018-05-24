@@ -1,0 +1,72 @@
+// Place all the styles related to the games controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import 'bootstrap-datetimepicker';
+
+.filter {
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: 1rem;
+}
+	.btn-create {
+		margin-bottom: 1rem;
+	}
+	.table_head {
+		border-bottom: 2px solid red;
+		thead {
+			tr {
+				th {
+					width: 100px;
+					text-align: center;
+					padding: 0.5rem;
+				}
+			}
+		}
+	}
+	.table_body {
+		tbody {
+			tr {
+				td {
+					width: 100px;
+					text-align: center;
+					padding: 0.5rem;
+
+				}
+				&:nth-child(even) {
+					background:#E6E6FA;
+				}
+			}
+		}
+	}
+.form-control {
+	width: 45rem;
+	height: 4rem;
+	label {
+		width: 15rem;
+
+	}
+}
+.date {
+	label {
+		width: 15.4rem;
+	}
+}
+.navbar-header {
+	p {
+		margin: 5px 0 0 20px;
+		span {
+			color: orange;
+		}
+	}
+}
+
+div label input {
+   margin-right:100px;
+}
+body {
+    font-family:sans-serif;
+}

@@ -1,0 +1,46 @@
+<div class="main">
+	<div class="box">
+		<div class="box-body no-padding">
+			<table class="table table-condensed">
+				<tbody>
+					<tr>
+						<th>Название команды</th>
+						<th>Город</th>
+						<th>№ Лиги</th>
+						<th>Сезон</th>
+						<th>Номер игры</th>
+						<th>Подтвердить</th>
+						<th></th>
+					</tr>
+				</tbody>
+				<tbody>
+					<% @game_teams.each do |game_team| %>
+						<tr>
+							<td><%= game_team.team.name %></td>
+							<td><%= game_team.game.league.city %></td>
+							<td><%= game_team.game.league.name %></td>
+							<td><%= game_team.game.season.name %></td>
+							<td><%= game_team.game.game %></td>
+							<td>
+								<% if game_team.approved == false %>
+									<span class="approve-question">
+									  <%= link_to "Approve", update_approved_admin_game_team_path(game_team), method: :patch, :class => "approve_link" %>
+									</span>
+								<% else %>
+									<div class="approved"><i class="fas fa-check"></i></div>
+								<% end %>
+							</td>
+							<td>
+
+								<%= link_to '<i class="fas fa-eye"></i>'.html_safe, admin_game_team_path(game_team), :class => "mybtn btn_show" %>
+								<%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, admin_game_team_path(game_team), :class => "mybtn btn_delete", method: :delete, data: { confirm: 'Вы уверены?' }  %>
+								</td>
+							</td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+			<%= paginate @game_teams %>	
+		</div>
+	</div>
+</div>

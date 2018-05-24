@@ -1,0 +1,23 @@
+<%= form_for :team, url: admin_teams_path do |f| %>
+	<div class="form-control">
+		<%= f.label :name, :value => "Название команды" %>
+		<%= f.text_field (:name) %>
+	</div>
+	<div class="form-control">
+		<%= f.label :captain, :value => "Капитан" %>
+		<%= f.text_field(:captain) %>
+	</div>
+	<div class="form-control">
+		<%= f.label :email, "email" %>
+		<%= f.text_field(:email) %>
+	</div>
+	<div class="form-control">
+		<%= f.label :phone, "Телефон" %>
+		<%= f.text_field(:phone) %>
+	</div>
+	<div class="form-control">
+		<%= f.label :league_id, "Лига" %>
+		<%= f.select :league_id, options_from_collection_for_select(League.all.order(:city).order(:name), :id, :league_filter), prompt: "Все Лиги" %>
+	</div>
+	<%= f.submit 'Сохранить', :class => "btn btn-primary m-t-2" %>
+<% end %>
